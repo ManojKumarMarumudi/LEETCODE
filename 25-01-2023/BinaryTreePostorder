@@ -1,0 +1,14 @@
+    List<Integer> lst=new ArrayList<>();
+        if(root==null){
+            return lst;
+        }
+        return postorder(lst,root);
+    }
+    public List postorder(List lst,TreeNode root){
+        if(root==null){
+            return lst;
+        }
+        postorder(lst,root.left);
+        postorder(lst,root.right);
+        lst.add(root.val);
+        return lst;
