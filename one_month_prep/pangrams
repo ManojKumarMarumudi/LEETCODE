@@ -1,0 +1,27 @@
+class Result {
+
+    /*
+     * Complete the 'pangrams' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String pangrams(String s) {
+    // Write your code here
+    boolean Pangram=true;
+    s=s.toLowerCase();
+    for(char ch='a';ch<'z';ch++){
+        if(!s.contains(String.valueOf(ch))){
+            Pangram=false;
+        }
+    }
+    if(Pangram){
+        return "pangram";
+    }else{
+        return "not pangram";
+    }
+
+    }
+
+}
