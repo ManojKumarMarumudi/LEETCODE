@@ -1,0 +1,46 @@
+class Result {
+
+    /*
+     * Complete the 'isValid' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String isValid(String s) {
+    // Write your code here
+    HashMap<Character,Integer> hp=new HashMap<>();
+    char[] ch=s.toCharArray();
+    for(char i:ch){
+        if(hp.containsKey(i)){
+            hp.put(i, hp.get(i)+1);
+        }else{
+            hp.put(i,1);
+        }
+    }
+    List<Integer> lst = new ArrayList<>(hp.values());
+    Collections.sort(lst);
+    // for(int i=0;i<lst.size()-1;i++){
+    //     for(int j=i+1;j<lst.size();j++){
+    //         if(Math.abs(lst.get(i)-lst.get(j))>3){
+    //             return "NO";
+    //         }
+    //     }
+    // }
+    // return "YES";
+    if(lst.size()<2)
+        {
+            return "YES";
+        }
+    int first=lst.get(0);
+    int second=lst.get(1);
+    int secondBeforeLast=lst.get(lst.size()-2);
+    int last =lst.get(lst.size()-1);
+    if(first==last) return "YES";
+    if(first==1&&second==last) return "YES";
+    if(first==secondBeforeLast&&last-secondBeforeLast==1)                  return "YES";
+    return "NO";
+
+    }
+
+}
